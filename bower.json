@@ -1,0 +1,28 @@
+{
+  "name": "angular-pico",
+  "version": "0.1.0",
+  "homepage": "https://github.com/Avlasof/angular-pico",
+  "authors": [
+    "Alexander Sofin <avlasof@mail.ru>"
+  ],
+  "description": "AngularJS directive replaces image for Retina and WebP",
+  "keywords": [
+    "webp",
+    "retina",
+    "angular",
+    "directive",
+    "module",
+    "plugin",
+    "replaces",
+    "img",
+    "imgage"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

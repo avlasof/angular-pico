@@ -1,8 +1,8 @@
 /**
  * angular-pico
- * @version v0.1.0 - 2014-12-01
+ * @version v0.1.0 - 2014-12-02
  * @author Alexander Sofin <avlasof@mail.ru>
- * @link https://github.com/avlasof/angular-pico
+ * @link https://github.com/Avlasof/angular-pico
  * @license MIT
 **/
 
@@ -15,8 +15,8 @@ angular.module('ngPico', [])
     link: function(scope, element, attrs) {
       var path       = attrs.pico.substr(0, attrs.pico.lastIndexOf('.'));
       var extension  = attrs.pico.substr(attrs.pico.lastIndexOf('.'));
-      var attrWebP   = (attrs.webp === 'true') || false;
-      var attrRetina = false || (attrs.retina === 'true');
+      var attrWebP   = attrs.webp || 'false';
+      var attrRetina = attrs.retina || 'true';
       var attrPrefix = attrs.prefix || '@2x';
 
       function supportWebP(callback) {
@@ -28,13 +28,13 @@ angular.module('ngPico', [])
       };
 
       function setSource(extension) {
-        if (window.devicePixelRatio >= 1.5 || window.devicePixelRatio >= 2 && attrRetina) {
+        if (window.devicePixelRatio >= 1.5 || window.devicePixelRatio >= 2 && attrRetina === 'true') {
           return element[0].src = path + attrPrefix + extension;
         }
         return element[0].src = path + extension;
       }
 
-      if (attrWebP) {
+      if (attrWebP === 'true') {
         supportWebP(function(result) {
           if (result) {
             return setSource('.webp');
